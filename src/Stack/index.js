@@ -25,3 +25,5 @@ class Stack {
     return resultStr;
   }
 }
+
+export default Stack;
