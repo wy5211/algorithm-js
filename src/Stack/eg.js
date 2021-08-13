@@ -1,6 +1,4 @@
-import Stack from './stack';
-
-console.log('wy->', new Stack());
+import Stack from './index';
 
 // 利用栈十进制转二进制
 function dec2bin(decNum) {
@@ -12,7 +10,7 @@ function dec2bin(decNum) {
     decNum = Math.floor(decNum / 2);
   }
   var result = '';
-  while (!stack.isEmpty) {
+  while (!stack.isEmpty()) {
     result += stack.pop();
   }
   return result;
