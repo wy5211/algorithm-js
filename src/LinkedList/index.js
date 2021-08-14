@@ -4,7 +4,7 @@
  * - 指向下个节点的指针；
  */
 
-function LinkedList() {
+export default function LinkedList() {
   function Node(element, next) {
     this.data = element;
     this.next = null;
@@ -30,5 +30,42 @@ function LinkedList() {
       current.next = newNode;
     }
     this.length += 1;
+  };
+
+  LinkedList.prototype.toString = function () {
+    var current = this.head;
+    var listString = '';
+    while (current) {
+      listString += current.data + '  ';
+      current = current.next;
+    }
+    return listString;
+  };
+
+  LinkedList.prototype.insert = function (position) {
+    // position 越界判断
+    if (position < 0 || position > this.length) {
+      return false;
+    }
+    // 1.先创建新的节点
+    var newNode = new Node();
+    // 2.1 插在第一个位置上
+    if (position === 0) {
+      newNode.next = this.head;
+      this.head = newNode;
+    } else {
+      // 2.2 插在其他位置
+      var current = this.head;
+      var index = 0;
+      var previous = null;
+      while (index++ < position) {
+        current = current.next;
+        previous = current;
+      }
+      newNode.next = current;
+      previous.next = newNode;
+      this.length += 1;
+      return true;
+    }
   };
 }
