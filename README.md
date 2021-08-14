@@ -45,3 +45,21 @@
 - front(): 查看队列的队头元素；
 - size(): 查看队列的长度；
 - toString(): 将队列中的元素以字符串形式返回；
+
+## 链表
+
+- 必须有一个开始的元素；
+- 每个节点包含节点的值以及指向下个节点的指针；
+
+### 链表常见的操作
+
+- append(element): 向列表尾部添加一个新的元素；
+- insert(position, element): 向列表特定位置添加一个元素；
+- get(position): 获取制定位置的元素；
+- indexOf(element): 返回元素在列表中的索引；如果没有返回-1；
+- update(position): 修改某个位置的元素；
+- removeAt(position): 从列表特定位置移除一项；
+- remove(element): 从列表中移除一项；
+- isEmpty(): 列表是否为空；
+- size(): 返回列表元素个数；
+- toString(): 由于列表使用了 Node 类，重写 toString 让其只输出元素的值；
