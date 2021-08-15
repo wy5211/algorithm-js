@@ -42,13 +42,14 @@ export default function LinkedList() {
     return listString;
   };
 
-  LinkedList.prototype.insert = function (position) {
+  // insert 指定插入的位置
+  LinkedList.prototype.insert = function (position, element) {
     // position 越界判断
     if (position < 0 || position > this.length) {
       return false;
     }
     // 1.先创建新的节点
-    var newNode = new Node();
+    var newNode = new Node(element);
     // 2.1 插在第一个位置上
     if (position === 0) {
       newNode.next = this.head;
@@ -59,13 +60,27 @@ export default function LinkedList() {
       var index = 0;
       var previous = null;
       while (index++ < position) {
-        current = current.next;
         previous = current;
+        current = current.next;
       }
       newNode.next = current;
       previous.next = newNode;
-      this.length += 1;
-      return true;
     }
+    this.length += 1;
+    return true;
+  };
+
+  // get 获取指定位置的元素
+  LinkedList.prototype.get = function (position) {
+    if (position < 0 || position >= this.length) {
+      return null;
+    }
+
+    var current = this.head;
+    var index = 0;
+    while (index++ < position) {
+      current = current.next;
+    }
+    return current;
   };
 }
