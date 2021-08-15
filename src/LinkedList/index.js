@@ -83,4 +83,71 @@ export default function LinkedList() {
     }
     return current;
   };
+
+  // indexOf 返回指定元素的位置，不存在返回 -1
+  LinkedList.prototype.indexOf = function (element) {
+    var current = this.head;
+    var index = 0;
+    while (current) {
+      if (current.data === element) {
+        return index;
+      }
+      current = current.next;
+      index += 1;
+    }
+    return -1;
+  };
+
+  // update 更新指定位置的元素；
+  LinkedList.prototype.update = function (position, newData) {
+    if (position < 0 || position >= this.length) {
+      return false;
+    }
+    var current = this.head;
+    var index = 0;
+    while (index++ < position) {
+      current = current.next;
+    }
+    current.data = newData;
+    return true;
+  };
+
+  // removeAt 移除指定位置的元素
+  LinkedList.prototype.removeAt = function (position) {
+    if (position < 0 || position >= this.length) {
+      return null;
+    }
+    var current = this.head;
+    if (position === 0) {
+      this.head = this.head.next;
+    } else {
+      var index = 0;
+      var previous = null;
+      while (index++ < position) {
+        previous = current;
+        current = current.next;
+      }
+    }
+    // 返回被删除的元素；
+    return current.data;
+  };
+
+  // remove 删除指定的元素；
+  LinkedList.prototype.remove = function (element) {
+    // 先找到元素对应的位置
+    var position = this.indexOf(element);
+
+    // 调用removeAt
+    return this.removeAt(position);
+  };
+
+  // size 返回链表的长度
+  LinkedList.prototype.size = function () {
+    return this.length;
+  };
+
+  // isEmpty 链表是否为空
+  LinkedList.prototype.isEmpty = function () {
+    return this.length === 0;
+  };
 }

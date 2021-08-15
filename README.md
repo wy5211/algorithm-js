@@ -57,7 +57,7 @@
 - insert(position, element): 向列表特定位置添加一个元素；
 - get(position): 获取制定位置的元素；
 - indexOf(element): 返回元素在列表中的索引；如果没有返回-1；
-- update(position): 修改某个位置的元素；
+- update(position, element): 修改某个位置的元素；
 - removeAt(position): 从列表特定位置移除一项；
 - remove(element): 从列表中移除一项；
 - isEmpty(): 列表是否为空；
