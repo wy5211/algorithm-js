@@ -63,3 +63,23 @@
 - isEmpty(): 列表是否为空；
 - size(): 返回列表元素个数；
 - toString(): 由于列表使用了 Node 类，重写 toString 让其只输出元素的值；
+
+## 双向链表
+
+- 每个节点包含三部分，节点的值、上个节点的引用、下个节点的引用；
+- head 头部元素；tail 尾部元素；
+
+### 双向链表常见操作
+
+- append(element): 向列表尾部添加一个新的元素；
+- insert(position, element): 向列表特定位置添加一个元素；
+- get(position): 获取制定位置的元素；
+- indexOf(element): 返回元素在列表中的索引；如果没有返回-1；
+- update(position, element): 修改某个位置的元素；
+- removeAt(position): 从列表特定位置移除一项；
+- remove(element): 从列表中移除一项；
+- isEmpty(): 列表是否为空；
+- size(): 返回列表元素个数；
+- toString(): 由于列表使用了 Node 类，重写 toString 让其只输出元素的值；
+- forwardString(): 返回正向遍历节点字符串形式
+- backwardString(): 返回反向遍历节点字符串形式；

@@ -4,6 +4,7 @@
  * - 指向下个节点的指针；
  */
 
+// 单向链表
 export default function LinkedList() {
   function Node(element, next) {
     this.data = element;
