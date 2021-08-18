@@ -21,4 +21,28 @@ export default function DoublyLinkedList() {
     }
     this.length += 1;
   };
+
+  DoublyLinkedList.prototype.toString = function () {
+    return this.backwardString();
+  };
+
+  DoublyLinkedList.prototype.forwardString = function () {
+    var current = this.tail;
+    var resultString = '';
+    while (current) {
+      resultString += current.data + ' ';
+      current = current.prev;
+    }
+    return resultString;
+  };
+
+  DoublyLinkedList.prototype.backwardString = function () {
+    var current = this.head;
+    var resultString = '';
+    while (current) {
+      resultString += current.data + ' ';
+      current = current.next;
+    }
+    return resultString;
+  };
 }
