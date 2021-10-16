@@ -1,10 +1,12 @@
 import LinkedList from './index';
+import DoublyLinkedList from './DoublyLinkedList';
 
-const link = new LinkedList();
+// const link = new LinkedList();
+const link = new DoublyLinkedList();
 
 link.append('a');
 link.append('b');
-link.append('aasdf');
+link.append('c');
 
 link.insert(0, 'aaa');
 link.insert(3, 'bbb');
@@ -34,9 +36,9 @@ console.log(
 //   link.toString()
 // );
 
-console.log(
-  'wy->link.update',
-  link.removeAt(0),
-  link.removeAt(3),
-  link.toString()
-);
+// console.log(
+//   'wy->link.update',
+//   link.removeAt(0),
+//   link.removeAt(3),
+//   link.toString()
+// );
