@@ -84,4 +84,102 @@ export default function DoublyLinkedList() {
     this.length += 1;
     return true;
   };
+
+  DoublyLinkedList.prototype.get = function (position) {
+    // 1.越界判断
+    if (position < 0 || position > this.length) {
+      return null;
+    }
+    // 2.获取元素
+    var half = this.length / 2;
+
+    if (half > position) {
+      // 接近头部，从头找
+      var current = this.head;
+      var index = 0;
+      while (index++ < position) {
+        current = current.next;
+      }
+      return current.data;
+    } else {
+      // 接近尾部，从尾部开始找
+      var current = this.tail;
+      var index = this.length - 1;
+      while (index-- > position) {
+        current = current.prev;
+      }
+      return current.data;
+    }
+  };
+
+  DoublyLinkedList.prototype.indexOf = function (data) {
+    var current = this.head;
+    var index = 0;
+    while (current) {
+      if (current.data === data) {
+        return index;
+      }
+      current = current.next;
+      index += 1;
+    }
+    return -1;
+  };
+
+  DoublyLinkedList.prototype.update = function (position, newData) {
+    if (position < 0 || position > this.length) {
+      return false;
+    }
+    var current = this.head;
+    var index = 0;
+    while (index++ < position) {
+      current = current.next;
+    }
+    current.data = newData;
+    return true;
+  };
+
+  DoublyLinkedList.prototype.removeAt = function (position) {
+    // 1.越界判断
+    if (position < 0 || position >= this.length) {
+      return null;
+    }
+
+    var current = this.head;
+
+    // 2.判断是否只有一个节点
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      if (position === 0) {
+        // 3.1 删除第一个
+        this.head.next.prev = null;
+        this.head = this.head.next;
+      } else if (position === this.length - 1) {
+        // 3.2 删除最后一个
+        current = this.tail;
+        this.tail.next = null;
+        this.tail = this.tail.prev;
+      } else {
+        // 3.3 删除中间的
+        var index = 0;
+        while (index++ < position) {
+          current = current.next;
+        }
+        current.prev.next = current.next;
+        current.next.prev = current.prev;
+      }
+
+      this.length -= 1;
+      return current.data;
+    }
+  };
+
+  DoublyLinkedList.prototype.remove = function (data) {
+    return this.length === 0;
+  };
+
+  DoublyLinkedList.prototype.size = function () {
+    return this.length;
+  };
 }
