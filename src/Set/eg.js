@@ -15,9 +15,14 @@ const setB = new Set();
 setA.add('a');
 setA.add('b');
 setA.add('c');
+setA.add('e');
+
 setB.add('c');
 setB.add('d');
 setB.add('e');
 
-var unionSet = setA.union(setB);
-console.log('unionSet values', unionSet.values());
+// var unionSet = setA.union(setB);
+// console.log('unionSet values', unionSet.values());
+
+var intersectionSet = setA.intersection(setB);
+console.log('intersectionSet values', intersectionSet.values());

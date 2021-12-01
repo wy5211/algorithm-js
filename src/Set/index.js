@@ -46,4 +46,46 @@ export default function Set() {
     }
     return unionSet;
   };
+
+  // 交集
+  Set.prototype.intersection = function (otherSet) {
+    var intersectionSet = new Set();
+    var values = this.values();
+
+    for (var i = 0; i < values.length; i++) {
+      var item = values[i];
+      if (otherSet.has(item)) {
+        intersectionSet.add(item);
+      }
+    }
+
+    return intersectionSet;
+  };
+
+  // 差集
+  Set.prototype.difference = function (otherSet) {
+    var differenceSet = new Set();
+    var values = this.values();
+
+    for (var i = 0; i < values.length; i++) {
+      var item = values[i];
+      if (!otherSet.has(item)) {
+        differenceSet.add(item);
+      }
+    }
+
+    return differenceSet;
+  };
+
+  // 子集
+  Set.prototype.subset = function (otherSet) {
+    var values = this.values();
+    for (var i = 0; i < values.length; i++) {
+      var item = values[i];
+      if (!otherSet.has([item])) {
+        return false;
+      }
+    }
+    return true;
+  };
 }
