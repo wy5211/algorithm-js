@@ -178,26 +178,26 @@ export default function BinarySearchTree() {
     }
 
     // 3.2只有一个叶子节点
-    if(current.left === null) {
+    if (current.left === null) {
       // 只有右子节点
-      if(current === this.root) {
+      if (current === this.root) {
         this.root = current.right;
         return;
       }
-      if(isLeft) {
+      if (isLeft) {
         parent.left = current.right;
       } else {
         parent.right = current.right;
       }
       return;
     }
-    if(current.right === null) {
+    if (current.right === null) {
       // 只有左子节点
-      if(current === this.root) {
+      if (current === this.root) {
         this.root = current.left;
         return;
       }
-      if(isLeft) {
+      if (isLeft) {
         parent.left = current.left;
       } else {
         parent.right = current.left;
@@ -223,9 +223,7 @@ export default function BinarySearchTree() {
   };
 
   // 获取后续节点，即从要删除的节点的右边开始查找最小的值
-  BinarySearchTree.prototype.getSuccessor =   function
-  (delNode) {
-
+  BinarySearchTree.prototype.getSuccessor = function (delNode) {
     // 定义变量，保存要找到的后续
     let successor = delNode;
     let current = delNode.right;
@@ -244,5 +242,5 @@ export default function BinarySearchTree() {
       successor.right = delNode.right;
     }
     return successor;
-  }
+  };
 }
