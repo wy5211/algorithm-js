@@ -1,4 +1,4 @@
-import Graph from './inde';
+import Graph from './index';
 
 const graph = new Graph();
 
@@ -18,4 +18,8 @@ graph.addEdge('E', 'B')
 graph.addEdge('F', 'E')
 graph.addEdge('C', 'B')
 
-console.log(graph.toString());
+// console.log(graph.toString());
+
+console.log(graph.bfs('A', (val) => {
+  console.log(val)
+}))
