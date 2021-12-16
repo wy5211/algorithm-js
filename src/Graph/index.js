@@ -48,7 +48,7 @@ class Graph {
     return colors;
   }
 
-  // 广度优先遍历 bfs
+  // 广度优先遍历 BFS
   bfs(initV, handler) {
     // 1.初始化颜色
     let colors = this.initializeColor();
@@ -82,6 +82,35 @@ class Graph {
 
     }
   }
+
+  // 深度优先搜索
+  dfs(initV, handler) {
+    // 1.初始化顶点颜色为白色
+    let colors = this.initializeColor();
+
+    // 2递归调用
+    this.dfsVisite(initV, colors, handler);
+  }
+
+  dfsVisite(v, colors, handler) {
+    // 1.将颜色设置为灰色
+    colors[v] = GRAY;
+
+    // 2.处理顶点
+    handler(v);
+
+    // 3.依次处理当前顶点的边
+    let currentEdges = this.edges.get(v);
+    for (let item of currentEdges) {
+      if (colors[item] === WHITE) {
+        this.dfsVisite(colors[item], colors, handler);
+      }
+    }
+
+    // 4.将顶点变成黑色
+    colors[v] = BLACK;
+
+  } 
 }
 
 export default Graph;
