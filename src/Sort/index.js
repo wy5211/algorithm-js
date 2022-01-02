@@ -20,6 +20,8 @@ class ArrayList {
   }
 
   // 冒泡排序，复杂度：O(N2)
+  // 比较次数：O(N2)
+  // 交换次数：O(N2)
   bubbleSort() {
     const len = this.arrry.length;
     // 写法一
@@ -43,6 +45,8 @@ class ArrayList {
     return this.arrry;
   }
 
+  // 比较次数：O(N2)
+  // 交换次数：O(N)
   selectionSort() {
     const len = this.arrry.length;
     for (let j = 0; j < len - 1; j++) {
