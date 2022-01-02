@@ -39,9 +39,23 @@ class ArrayList {
         }
       }
     }
-    
+
     return this.arrry;
-  } 
+  }
+
+  selectionSort() {
+    const len = this.arrry.length;
+    for (let j = 0; j < len - 1; j++) {
+      var min = j;
+      for (let i = min + 1; i < len; i++) {
+        if (this.arrry[min] > this.arrry[i]) {
+          min = i;
+        }
+      }
+      this.swap(min, j);
+    }
+    return this.arrry;
+  }
 }
 
 export default ArrayList;
