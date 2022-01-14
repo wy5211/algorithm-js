@@ -60,6 +60,22 @@ class ArrayList {
     }
     return this.arrry;
   }
+
+  // 插入排序
+  // 比较次数：O(N2)
+  insertionSort() {
+    const len = this.arrry.length;
+    for (let i = 1; i < len; i++) {
+      // 内层循环，获取i位置的元素，依次和前面的进行比较
+      let temp = this.arrry[i];
+      let j = i;
+      while (this.arrry[j - 1] > temp && j > 0) {
+        this.arrry[j] = this.arrry[j - 1];
+        j--;
+      }
+      this.arrry[j] = temp;
+    }
+  }
 }
 
 export default ArrayList;
